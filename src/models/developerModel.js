@@ -50,6 +50,10 @@ const developerSchema = new mongoose.Schema({
         max:500,
         unique: true,
     },
+    avatar: {
+        type: String,
+        required: [true, 'Developer avatar is required'],
+    }
 
 });
 

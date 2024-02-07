@@ -20,8 +20,10 @@ module.exports.updateDeveloper = async (req, res, next) => {
   try {
     const username = req.params.username;
 
-    const developer = await Developer.find({ username });
+    const updated = req.body;
 
+    const developer = await Developer.findOneAndUpdate({ username }, updated);
+    /*
     developer.username = req.body.username;
     developer.names = req.body.names;
     developer.address = req.body.address;
@@ -29,9 +31,11 @@ module.exports.updateDeveloper = async (req, res, next) => {
     developer.github = req.body.github;
     developer.linkedin = req.body.linkedin;
     developer.about = req.body.about;
+    developer.avatar = req.body.avatar;
+*/
+    await developer.save();
 
-
-    return res.json({ message: "Developer info updated", status: true, developer });
+    return res.json({ message: "Developer info updated", status: true });
 
   } catch (err) {
     next(err);
@@ -40,7 +44,7 @@ module.exports.updateDeveloper = async (req, res, next) => {
 
 module.exports.createDeveloper = async (req, res, next) => {
   try {
-    const { username, names, address, email, github, linkedin, about } =
+    const { username, names, address, email, github, linkedin, about, avatar } =
       req.body;
     const usernameCheck = await Developer.findOne({ username });
 
@@ -58,6 +62,7 @@ module.exports.createDeveloper = async (req, res, next) => {
       github,
       linkedin,
       about,
+      avatar
     });
     return res.json({ status: true, portfolioDev });
   } catch (err) {
