@@ -1,5 +1,6 @@
 const { createDeveloper, updateDeveloper, getUserByUsername } = require("../controllers/developerController.js");
 const { createProject, getProjectsByUsername, updateProject } = require("../controllers/projectsController.js");
+const { createSkills, getSkillsByUsername, updateSkills } = require("../controllers/skillsController.js");
 const { createTimeline, getTimelineByUsername, updateTimeline } = require("../controllers/timelineController.js");
 
 
@@ -14,7 +15,12 @@ router.put("/timeline/:_id", updateTimeline);
 router.post("/projects", createProject);
 router.get("/projects/:username", getProjectsByUsername);
 router.put("/projects/:_id", updateProject);
-
+router.post("/skills", createSkills);
+router.get("/skills/:username", getSkillsByUsername);
+router.put("/skills/:_id", updateSkills);
+//router.post("/certificates", createCertificates);
+//router.get("/certificates/:username", getCertificatesByUsername);
+//router.put("/certificates/:_id", updateCertificate);
 
 
 module.exports = router;
