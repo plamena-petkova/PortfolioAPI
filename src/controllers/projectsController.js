@@ -1,4 +1,5 @@
 const Project = require("../models/projectsModel");
+const mongoose = require("mongoose");
 
 module.exports.getProjectsByUsername = async (req, res, next) => {
   try {
@@ -20,15 +21,18 @@ module.exports.getProjectsByUsername = async (req, res, next) => {
 
 module.exports.updateProject = async (req, res, next) => {
   try {
-    const username = req.params.username;
+    const {_id} = req.params;
 
     const updated = req.body;
 
-    const project = await Project.findOneAndUpdate({ username }, updated);
+    if (mongoose.Types.ObjectId.isValid(_id)) {
+      const project = await Project.findOneAndUpdate({ _id }, updated);
+
 
     await project.save();
 
     return res.json({ message: "Project info updated", status: true });
+    }
   } catch (err) {
     next(err);
   }
