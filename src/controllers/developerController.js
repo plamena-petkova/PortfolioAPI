@@ -1,5 +1,23 @@
 const Developer = require("../models/developerModel");
 
+module.exports.getAllDevelopers = async (req, res, next) => {
+  try {
+  
+
+    const users = await Developer.find({});
+
+    if (!users) {
+      return res.status(404).json({ message: "There are no users", status: false });
+    }
+
+    return res.json({ status: true, users });
+  } catch (err) {
+    next(err);
+  }
+};
+
+
+
 module.exports.getUserByUsername = async (req, res, next) => {
   try {
     const username = req.params.username;

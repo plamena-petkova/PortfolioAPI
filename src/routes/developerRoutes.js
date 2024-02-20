@@ -1,5 +1,5 @@
 const { createCertificates, getCertificatesByUsername, updateCertificates } = require("../controllers/certificatesController.js");
-const { createDeveloper, updateDeveloper, getUserByUsername } = require("../controllers/developerController.js");
+const { createDeveloper, updateDeveloper, getUserByUsername, getAllDevelopers } = require("../controllers/developerController.js");
 const { createProject, getProjectsByUsername, updateProject } = require("../controllers/projectsController.js");
 const { createSkills, getSkillsByUsername, updateSkills } = require("../controllers/skillsController.js");
 const { createTimeline, getTimelineByUsername, updateTimeline } = require("../controllers/timelineController.js");
@@ -8,6 +8,7 @@ const { createTimeline, getTimelineByUsername, updateTimeline } = require("../co
 const router = require("express").Router();
 
 router.post("/developer", createDeveloper);
+router.get("/developer", getAllDevelopers);
 router.get("/developer/:username", getUserByUsername);
 router.put("/developer/:username", updateDeveloper)
 router.post("/timeline", createTimeline);
