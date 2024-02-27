@@ -1,5 +1,5 @@
 const Timeline = require("../models/timelineModel");
-const Developer = require("..//models/developerModel");
+const Developer = require("../models/developerModel");
 const mongoose = require("mongoose");
 
 module.exports.getTimelineByUsername = async (req, res, next) => {

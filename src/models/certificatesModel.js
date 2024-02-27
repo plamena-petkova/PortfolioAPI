@@ -15,7 +15,7 @@ const certificatesSchema = new mongoose.Schema({
   },
   about: {
     type: String,
-    required: [true, "About should be min 10 charachters long"],
+    required: [true, "About section should be min 10 charachters long"],
     min: 10,
     max: 400,
     unique: true,
