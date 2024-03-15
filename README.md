@@ -16,7 +16,7 @@ The Portfolio has endpoints for adding, editing and getting information about we
     + /api/certificates/pl.petkova
 
 #### Deployed
-The API is deployed on onrender - [[https://](https://portfolioapi-ogzs.onrender.com)]
+The API is deployed on onrender -https://portfolioapi-ogzs.onrender.com
 
 
 
