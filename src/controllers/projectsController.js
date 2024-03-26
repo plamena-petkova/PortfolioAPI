@@ -5,7 +5,7 @@ module.exports.getProjectsByUsername = async (req, res, next) => {
   try {
     const developer = req.params.username;
 
-    const projects = await Project.find({ developer });
+    const projects = await Project.find({ developer }).sort({_id:'desc'});
 
     if (!projects) {
       return res
