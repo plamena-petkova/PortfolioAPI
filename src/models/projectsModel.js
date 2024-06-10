@@ -21,7 +21,7 @@ const projectsSchema = new mongoose.Schema({
     unique: true,
   },
   gitRepo: {
-    type: String,
+    type: Array,
     required: [true, "GitRepo link is required"],
     min: 10,
     max: 1000,
@@ -46,6 +46,8 @@ const projectsSchema = new mongoose.Schema({
   },
 
   developer: { type: String, ref: "Developer" },
-});
+},
+{ timestamps: true },
+);
 
 module.exports = mongoose.model("Projects", projectsSchema);
